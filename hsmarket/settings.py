@@ -123,8 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOCAL_STATIC_CDN_PATH = os.path.join(os.path.dirname(BASE_DIR), 'hsmarket_static')
-STATIC_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
