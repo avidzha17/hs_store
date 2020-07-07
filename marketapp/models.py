@@ -6,6 +6,8 @@ User = settings.AUTH_USER_MODEL
 
 
 class CardQuerySet(models.QuerySet):
+    # TODO: поиск не работает с пробелом и зависит от регистра
+    # TODO: после нажатия на кнопку появляется нижний скроллер
     def find_by_title(self, query):
         lookup = (
             Q(title__icontains=query)
@@ -13,6 +15,7 @@ class CardQuerySet(models.QuerySet):
         return self.filter(lookup)
 
     def fields_filter(self, query):
+        # TODO: добавить ценовой фильтр
 
         if query.get('cost') != '-':
             if query.get('cost') == '7+':

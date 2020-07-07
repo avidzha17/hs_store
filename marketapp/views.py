@@ -8,6 +8,7 @@ from .models import Card
 def card_list_view(request):
     query_set = Card.objects.get_queryset()
     context = {'card_list': query_set}
+    # TODO: сделать горизонтальное отображение карт
     return render(request, 'marketapp/list.html', context)
 
 
