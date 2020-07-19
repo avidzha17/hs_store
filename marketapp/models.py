@@ -8,9 +8,10 @@ User = settings.AUTH_USER_MODEL
 class CardQuerySet(models.QuerySet):
     # TODO: поиск не работает с пробелом и зависит от регистра
     # TODO: после нажатия на кнопку появляется нижний скроллер
+    # TODO: сделать фильтрацию результатов поиска (по алфавиту, цене)
     def find_by_title(self, query):
         lookup = (
-            Q(title__icontains=query)
+            Q(name__icontains=query)
         )
         return self.filter(lookup)
 
@@ -52,7 +53,7 @@ class CardManager(models.Manager):
 
 class Card(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
-    title = models.CharField(max_length=50)
+    name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='image/')
     cost = models.IntegerField(default=0)  # mana cost
     attack = models.IntegerField(default=0)
@@ -127,10 +128,9 @@ class Card(models.Model):
         (WARRIOR, 'Warrior'),
         (COMMON_CLASS, 'Common')
     ]
-
     hero_class = models.CharField(choices=HERO_CLASS_CHOICES, max_length=2, default='')
 
-    price = models.IntegerField(default=0)
+    price = models.FloatField()
     in_stock = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
 
@@ -145,10 +145,3 @@ class Card(models.Model):
     def get_delete_url(self):
         return f"/market/{self.slug}/delete"
 
-
-class CardBack(models.Model):
-    pass
-
-
-class Hero(models.Model):
-    pass

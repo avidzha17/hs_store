@@ -1,8 +1,10 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from .forms import CardModelForm
 from .models import Card
+from cart.cart import Cart
 
 
 def card_list_view(request):
@@ -41,7 +43,7 @@ def card_update_view(request, slug):
     else:
         form = CardModelForm()
     return render(request, 'marketapp/form.html',
-                  {'form': form, 'title': f"Update {obj.title}"})
+                  {'form': form, 'title': f"Update {obj.name}"})
 
 
 @staff_member_required()
@@ -51,3 +53,5 @@ def card_delete_view(request, slug):
         obj.delete()
         return redirect("/market")
     return render(request, 'marketapp/delete.html', {'card': obj})
+
+

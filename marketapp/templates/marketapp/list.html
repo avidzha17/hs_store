@@ -1,74 +1,76 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    {% if request.user.is_authenticated %}
-        <a href="/new-card/" class="btn btn-primary">Новая карта</a>
-    {% endif %}
-     <form action="/filter-search/">
 
-<div class="form-group" style="padding-right: 90%">
-    <label for="FormControlSelectHeroClass">Hero Class</label>
-    <select class="form-control" id="FormControlSelectHeroClass" name="q_hero_class">
-        <option>-</option>
-        <option>Common</option>
-      <option>Druid</option>
-      <option>Hunter</option>
-      <option>Paladin</option>
-      <option>Priest</option>
-      <option>Shaman</option>
-        <option>Warlock</option>
-       <option>Warrior</option>
-    </select>
-  </div>
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
+  {% if request.user.is_authenticated %}
+    <a href="/new-card/" class="btn btn-primary">Новая карта</a>
+  {% endif %}
+  <form action="/filter-search/">
+    <div class="flex-container">
 
-    <div class="form-group" style="padding-right: 85%">
-    <label for="FormControlSelectSet">Set</label>
-    <select class="form-control" id="FormControlSelectSet" name="q_card_set">
-        <option>-</option>
-        <option>Classic</option>
-        <option>Hall Of Fame</option>
-      <option>Naxxramas</option>
-      <option>Goblins VS Gnomes</option>
-      <option>Blackrock Mountain</option>
-      <option>The Grand Tournament</option>
-        <option>The League of Explorers</option>
-       <option>Old Gods</option>
-        <option>Karazhan</option>
-        <option>Gadgetzan</option>
-        <option>Un Goro</option>
-        <option>Frozen Throne</option>
-    </select>
-  </div>
+      <div class="form-group">
+        <label for="FormControlSelectHeroClass">Hero Class</label>
+        <select class="form-control-select" id="FormControlSelectHeroClass" name="q_hero_class">
+          <option>-</option>
+          <option>Common</option>
+          <option>Druid</option>
+          <option>Hunter</option>
+          <option>Paladin</option>
+          <option>Priest</option>
+          <option>Shaman</option>
+          <option>Warlock</option>
+          <option>Warrior</option>
+        </select>
+      </div>
 
-        <div class="form-group" style="padding-right: 95%">
-    <label for="FormControlSelectCost">Cost</label>
-    <select class="form-control" id="FormControlSelectCost" name="q_cost">
-        <option>-</option>
-        <option>0</option>
-        <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-        <option>6</option>
-       <option>7+</option>
-    </select>
-  </div>
-         <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="CheckForGolden" name="q_golden">
-    <label class="form-check-label" for="CheckForGolden">Golden</label>
-  </div>
+      <div class="form-group">
+        <label for="FormControlSelectSet">Set</label>
+        <select class="form-control-select" id="FormControlSelectSet" name="q_card_set">
+          <option>-</option>
+          <option>Classic</option>
+          <option>Hall Of Fame</option>
+          <option>Naxxramas</option>
+          <option>Goblins VS Gnomes</option>
+          <option>Blackrock Mountain</option>
+          <option>The Grand Tournament</option>
+          <option>The League of Explorers</option>
+          <option>Old Gods</option>
+          <option>Karazhan</option>
+          <option>Gadgetzan</option>
+          <option>Un Goro</option>
+          <option>Frozen Throne</option>
+        </select>
+      </div>
 
-         <button class="btn btn-outline-success" type="submit" >Поиск</button>
+      <div class="form-group">
+        <label for="FormControlSelectCost">Cost</label>
+        <select class="form-control-select" id="FormControlSelectCost" name="q_cost">
+          <option>-</option>
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7+</option>
+        </select>
+      </div>
 
-     </form>
+      <div class="form-check">
+        <label class="form-check-label" for="CheckForGolden">Golden</label>
+        <input type="checkbox" class="form-check-input" id="CheckForGolden" name="q_golden">
+      </div>
 
+      <button class="btn btn-light" type="submit">Поиск</button>
 
+    </div>
 
-    {% for object in card_list %}
-        {% include "marketapp/list_horizontal.html" with card=object %}
-    {% endfor %}
+  </form>
 
-
+  {% for object in card_list %}
+    {% include "marketapp/list_horizontal.html" with card=object %}
+  {% endfor %}
 
 {% endblock %}

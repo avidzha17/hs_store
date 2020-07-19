@@ -6,7 +6,7 @@ from .models import Card
 class CardModelForm(forms.ModelForm):
     class Meta:
         model = Card
-        fields = ['title', 'image', 'cost', 'attack', 'health', 'description', 'golden',
+        fields = ['name', 'image', 'cost', 'attack', 'health', 'description', 'golden',
                   'rarity', 'card_set', 'hero_class', 'price', 'in_stock', 'slug', ]
 
     def clean_title(self):

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 from marketapp.models import Card
 from .models import SearchQuery

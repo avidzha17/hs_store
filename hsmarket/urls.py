@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
+
 from .views import home_page, contacts_page
 from marketapp.views import card_create_view
 from searches.views import search_card_view, filter_search_view
@@ -13,7 +14,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('new-card/', card_create_view),
     path('search/', search_card_view),
-    path('filter-search/', filter_search_view)
+    path('filter-search/', filter_search_view),
+    path('cart/', include('cart.urls')),
 ]
 
 if settings.DEBUG:
