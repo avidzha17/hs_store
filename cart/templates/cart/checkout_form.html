@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form method='POST' action='.' enctype="multipart/form-data"> {% csrf_token %}
+        <label>
+            <input type="email" name="email">email
+        </label>
+        <label>
+            <input type="text" name="battletag">battletag
+        </label>
+        <input type="hidden" name="cart_items" value="{{ cart_items }}">
+
+    <button type='submit' class="btn btn-success">OK</button>
+    </form>
+{% endblock %}

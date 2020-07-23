@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% load cart_tag %}
     {% if request.session.cart.items %}
         {% for key,value in request.session.cart.items %}
-             <img src="{{ value.image }}" class="card-img-top" alt="" style="width:260px;height:400px;">
- {{value.price}} amount {{value.quantity}} Total {{ value.price|multiply:value.quantity }}
-            <a href="{% url 'item_increment' value.product_id %}" class="btn btn-primary">+1</a>
-                            <!-- % if value.quantity > 1%} -->
-
-            <a href="{% url 'item_decrement' value.product_id %}" class="btn btn-primary">-1</a>
-                <!-- % endif %} -->
-
-
-{% endfor %}
-            <a href="{% url 'cart_clear' %}" class="btn btn-primary">Clear Cart</a>
+                <div class="card" style="display:inline-block;">
+                {% load static %}
+                <img src="{{ value.image }}" class="card-img-top" alt="" style="width:300px;height:400px;">
+                    <div class="card-body">
+                        <h6>Price: {{value.price}}</h6>
+                        <h6>Amount: {{value.quantity}}</h6>
+                        <a href="{% url 'item_increment' value.product_id %}" class="btn btn-primary">+1</a>
+                        {% if value.quantity > 1 %}
+                            <a href="{% url 'item_decrement' value.product_id %}" class="btn btn-primary">-1</a>
+                        {% endif %}
+                        <a href="{% url 'item_remove' value.product_id %}" class="btn btn-primary">remove</a>
+                    </div>
+                </div>
+        {% endfor %}
+        <a href="{% url 'cart_clear' %}" class="btn btn-primary">Clear Cart</a>
+        <a href="{% url 'to_checkout' %}" class="btn btn-primary">To Pay</a>
+        <h1>Total: {{ cart_total_amount }}</h1>
     {% else %}
         <h1>Cart is empty</h1>
     {% endif %}
-
-
-
-
 {% endblock %}

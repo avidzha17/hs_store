@@ -21,7 +21,9 @@ def filter_search_view(request):
     query_card_set = request.GET.get('q_card_set', None)
     query_hero_class = request.GET.get('q_hero_class', None)
     query_cost = request.GET.get('q_cost', None)
-    query_golden = request.GET.get('q_golden', None)  # mb false?
+    query_golden = request.GET.get('q_golden', None)
+    query_price_min = request.GET.get('q_price_min', None)  # TODO: сделать валидацию ценового диапазона
+    query_price_max = request.GET.get('q_price_max', None)
 
     input_dict = {'card_set': query_card_set, 'hero_class': query_hero_class,
                   'cost': query_cost, 'golden': query_golden}

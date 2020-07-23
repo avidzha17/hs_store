@@ -1,6 +1,7 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5ad31;">
+
   <a class="navbar-brand" href='/'>HS Market</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,6 +19,18 @@
         <a class="nav-link" href="/cart/">Cart<span class="sr-only">(current)</span></a>
       </li>
     </ul>
+
+      <div class="form-inline" style="position: absolute;left: 47%;">
+
+            <a href="https://www.instagram.com/avidzha_17/" target="_blank">
+             <img src="/media/image/instagram_logo.png" width="37px" height="37px" alt="">
+           </a>
+
+          <a href="https://t.me/Avidzha" target="_blank">
+             <img src="/media/image/telegram_logo.png" width="37px" height="37px" alt="">
+           </a>
+
+          </div>
     <form class="form-inline my-2 my-lg-0" action="/search/">
       <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Find card</button>

@@ -6,9 +6,9 @@ User = settings.AUTH_USER_MODEL
 
 
 class CardQuerySet(models.QuerySet):
-    # TODO: поиск не работает с пробелом и зависит от регистра
-    # TODO: после нажатия на кнопку появляется нижний скроллер
     # TODO: сделать фильтрацию результатов поиска (по алфавиту, цене)
+    # TODO: когда карта золотая поиско должнен происходить только по golden
+    # TODO: при изменение размера окна значки инмсты и телеги хреново отображаются
     def find_by_title(self, query):
         lookup = (
             Q(name__icontains=query)
@@ -144,4 +144,3 @@ class Card(models.Model):
 
     def get_delete_url(self):
         return f"/market/{self.slug}/delete"
-

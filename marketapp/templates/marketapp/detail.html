@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="col-12 col-md-10 mb-3 mx-auto">
     <div class="card" style="display:inline-block;">
     {% load static %}
-  <img src="{{ card.image.url }}" class="card-img-top" alt="" style="width:260px;height:400px;">
+  <img src="{{ card.image.url }}" class="card-img-top" alt="" style="width:300px;height:400px;">
   <div class="card-body">
   <h5 class="card-hero-class">Класс: {{ card.get_hero_class_display }}</h5>
       <h5 class="card-set">Набор: {{ card.get_card_set_display }}</h5>
@@ -14,7 +13,6 @@
       {% else %}
           <a href="{% url 'cart_add' card.id %}" class="btn btn-primary">Add To Cart</a>
       {% endif %}
-    </div>
     </div>
     </div>
 
