@@ -1,12 +1,14 @@
-<div class="card" style="display:inline-block; ">
-    {% load static %}
-  <img src="{{ card.image.url }}" class="card-img-top" alt="" style="width:300px;height:400px;">
+  {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/list_horizontal.css' %}">
+
+<div class="card">
+  <img src="{{ card.image.url }}" class="card-img-top" alt="">
   <div class="card-body">
       {% if card.in_stock == 0 %}
-          <h6>Нет в наличии</h6>
+          <h5>Not in stock</h5>
           <a href="{{ card.get_absolute_url }}" class="btn btn-danger">Open</a>
       {% else %}
-          <a href="{{ card.get_absolute_url }}" class="btn btn-primary" style="margin-left: 35%">Open</a>
+          <a href="{{ card.get_absolute_url }}" class="btn btn-dark">Open</a>
       {% endif %}
   </div>
 </div>

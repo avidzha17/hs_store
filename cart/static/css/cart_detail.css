@@ -1,0 +1,25 @@
+.card {
+    margin: 20px 30px 30px 30px;
+    background-color: rgba(245, 173, 49, 0.4);
+    display:inline-block;
+}
+.card-img-top {
+    width:300px;
+    height:400px;
+}
+.buttons {
+    margin-left: 24%;
+}
+.form-inline {
+    background-color: rgba(245, 173, 49, 0.7);
+}
+h5 {
+    text-align: center;
+    font-weight: bold;
+}
+.btn-light {
+    margin-left: 20px;
+}
+.total {
+    margin-left: 35%;
+}

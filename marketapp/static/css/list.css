@@ -1,0 +1,18 @@
+.form-group {
+    margin-left: 15px;
+}
+.form-inline {
+    background-color: rgba(245, 173, 49, 0.7);
+}
+.form-check {
+    margin-left: 15px;
+}
+.btn-light {
+    margin-left: 15px;
+}
+.form-control-select {
+    margin-left: 10px;
+}
+.form-check-label {
+    margin-right: 10px;
+}
