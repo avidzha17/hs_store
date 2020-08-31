@@ -1,10 +1,8 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import CardModelForm
 from .models import Card
-from cart.cart import Cart
 
 
 def card_list_view(request):
@@ -52,5 +50,3 @@ def card_delete_view(request, slug):
         obj.delete()
         return redirect("/market")
     return render(request, 'marketapp/delete.html', {'card': obj})
-
-

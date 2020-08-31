@@ -1,9 +1,14 @@
   {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/list_horizontal.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+
+
 
 <div class="card">
   <img src="{{ card.image.url }}" class="card-img-top" alt="">
   <div class="card-body">
+    <h5>{{ card.price }}</h5>
+
       {% if card.in_stock == 0 %}
           <h5>Not in stock</h5>
           <a href="{{ card.get_absolute_url }}" class="btn btn-danger">Open</a>

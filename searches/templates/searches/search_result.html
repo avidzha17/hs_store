@@ -2,9 +2,14 @@
 
 {% block content %}
 
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search_result.css' %}">
+
             {% if card_list.count == 0 %}
-                <p>Хмм...Похоже что, сейчас таких карт нет в нашем магазине.</p>
-                <p>Постараемся добавить их специально для тебя. :-)</p>
+                <div class="no-result">
+                    <h5>Hmm ... It seems that now these cards are not in our store.</h5>
+                    <h5>We will try to add them especially for you. :-)</h5>
+                </div>
             {% endif %}
 
 

@@ -6,9 +6,6 @@ User = settings.AUTH_USER_MODEL
 
 
 class CardQuerySet(models.QuerySet):
-    # TODO: сделать фильтрацию результатов поиска (по алфавиту, цене)
-    # TODO: когда карта золотая поиско должнен происходить только по golden
-    # TODO: при изменение размера окна значки инмсты и телеги хреново отображаются
     def find_by_title(self, query):
         lookup = (
             Q(name__icontains=query)
@@ -16,7 +13,6 @@ class CardQuerySet(models.QuerySet):
         return self.filter(lookup)
 
     def fields_filter(self, query):
-        # TODO: добавить ценовой фильтр
 
         if query.get('cost') != '-':
             if query.get('cost') == '7+':
@@ -30,10 +26,17 @@ class CardQuerySet(models.QuerySet):
             self = self.filter(hero_class__exact=query.get('hero_class'))
         if query.get('golden') is True:
             self = self.filter(golden__exact=query.get('golden'))
-        return self
 
-    def order_by_title(self):
-        return self.order_by('title')
+        if query.get('sort') == '$$$ - $':
+            self = self.order_by('price').reverse()
+        elif query.get('sort') == 'A - Z':
+            self = self.order_by('name')
+        elif query.get('sort') == 'Z - A':
+            self = self.order_by('name').reverse()
+        else:
+            self = self.order_by('price')
+
+        return self
 
 
 class CardManager(models.Manager):

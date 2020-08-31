@@ -1,0 +1,8 @@
+.no-result {
+    background-color: rgba(245, 173, 49, 0.7);
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 30%;
+    margin-top: 50px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+}

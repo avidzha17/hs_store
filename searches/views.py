@@ -22,27 +22,26 @@ def filter_search_view(request):
     query_hero_class = request.GET.get('q_hero_class', None)
     query_cost = request.GET.get('q_cost', None)
     query_golden = request.GET.get('q_golden', None)
-    query_price_min = request.GET.get('q_price_min', None)  # TODO: сделать валидацию ценового диапазона
-    query_price_max = request.GET.get('q_price_max', None)
+    query_sort = request.GET.get('q_sort', None)
 
     input_dict = {'card_set': query_card_set, 'hero_class': query_hero_class,
-                  'cost': query_cost, 'golden': query_golden}
+                  'cost': query_cost, 'golden': query_golden, 'sort': query_sort}
 
     values = input_dict.values()
     if set(values) == {'-', None}:
         context = {'card_list': Card.objects.get_queryset()}
         return render(request, 'marketapp/list.html', context)
 
-    card_set = Card.CARD_SET_CHOICES
-    hero_class_set = Card.HERO_CLASS_CHOICES
+    card_set_list = Card.CARD_SET_CHOICES
+    hero_class_list = Card.HERO_CLASS_CHOICES
 
     if input_dict.get('card_set'):
-        for tup in card_set:
+        for tup in card_set_list:
             if query_card_set in tup:
                 input_dict.update({'card_set': tup[0]})
 
     if input_dict.get('hero_class'):
-        for tup in hero_class_set:
+        for tup in hero_class_list:
             if query_hero_class in tup:
                 input_dict.update({'hero_class': tup[0]})
 

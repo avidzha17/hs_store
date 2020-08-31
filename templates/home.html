@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Главная страница</h1>
+      {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+    <div class="greetings">
+<h4>Simple and practical service for buying hearthstone cards</h4>
+    <a href="/market/" class="btn btn-dark">Go shopping!</a>
+    </div>
 {% endblock %}

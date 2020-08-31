@@ -1,0 +1,18 @@
+.container {
+    background-color: rgba(245, 173, 49, 0.8);
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 50px;
+    width: 700px;
+}
+.col-form-label {
+    font-size: 18px;
+    font-weight: 500;
+}
+.btn-light {
+    margin-left: 45%;
+}
+.form-control {
+    margin-right: 200px;
+}

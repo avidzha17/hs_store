@@ -1,0 +1,8 @@
+.greetings {
+    width: 400px;
+    background-color: rgba(245, 173, 49, 0.7);
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+}

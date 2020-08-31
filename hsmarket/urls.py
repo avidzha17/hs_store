@@ -3,13 +3,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from .views import home_page, contacts_page
+from .views import home_page
 from marketapp.views import card_create_view
 from searches.views import search_card_view, filter_search_view
 
 urlpatterns = [
     path('', home_page),
-    path('contacts/', contacts_page),
     path('market/', include('marketapp.urls')),
     path('admin/', admin.site.urls),
     path('new-card/', card_create_view),
