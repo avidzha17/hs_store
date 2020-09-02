@@ -7,7 +7,7 @@ Store has simple design and smart filtres like in Hearthstone.
 
 Also I added fast search by title of card.
 
-![main_page](https://imgur.com/Iq5ZorU.png)
+![main_page](https://imgur.com/599fqSV.png)
 
 How cart looks like:
 
